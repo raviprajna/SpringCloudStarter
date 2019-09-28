@@ -1,2 +1,0 @@
-# SpringCloudStarter
-SpringCloudStarter
