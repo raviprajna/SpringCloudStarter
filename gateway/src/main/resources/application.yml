@@ -14,3 +14,9 @@ spring:
             - Path=/api/two/**
           filters:
             - StripPrefix=2
+        - id: micro-service-three
+          uri: lb://micro-service-three
+          predicates:
+            - Path=/api/three/**
+          filters:
+            - StripPrefix=2

@@ -29,7 +29,8 @@
             super(props);
             this.state = {
                  "service-one-data" : "",
-                 "service-two-data" : ""
+                 "service-two-data" : "",
+                 "service-three-data" : ""
              };
              this.fetchAll = this.fetchAll.bind(this);
           }
@@ -55,6 +56,16 @@
             .catch((error) => {
                 console.log("error"+error);
             });
+
+          fetch(hostURL+"/api/three/greet") // Call the fetch function passing the url of the API as a parameter
+            .then((resp) => resp.text())
+            .then((data) => {
+                console.log("data"+data);
+                this.setState({ ...this.state, "service-three-data" : data })
+            })
+            .catch((error) => {
+                console.log("error"+error);
+            });
         }
 
       componentDidMount(){
@@ -68,6 +79,7 @@
                     <ReactMDL.Header title={"Spring Cloud Starter"} style={{ height : '75px'}} />
                         <h6> Service One response : {this.state["service-one-data"]} </h6>
                         <h6> Service Two response : {this.state["service-two-data"]} </h6>
+                        <h6> Service Three response ( This API combines responses of above 2 API using service name) <br/>: {this.state["service-three-data"]} </h6>
                 </ReactMDL.Layout>
             </div>
             );

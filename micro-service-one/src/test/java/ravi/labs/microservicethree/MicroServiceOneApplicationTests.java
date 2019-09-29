@@ -1,4 +1,4 @@
-package ravi.labs.microserviceone;
+package ravi.labs.microservicethree;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
